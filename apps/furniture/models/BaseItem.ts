@@ -22,6 +22,6 @@ export const BaseItemSchema: Schema = new Schema({
     },
     quantityInStock: { type: Number, default: 0 },
     cost: { type: Number, required: true },
-    description: { type: String },
-    image: { type: String }
+    description: { type: String, null: true },
+    image: { type: String, null: true }
 });

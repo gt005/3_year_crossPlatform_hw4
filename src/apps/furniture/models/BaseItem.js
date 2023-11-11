@@ -11,6 +11,6 @@ exports.BaseItemSchema = new mongoose_1.Schema({
     },
     quantityInStock: { type: Number, default: 0 },
     cost: { type: Number, required: true },
-    description: { type: String },
-    image: { type: String }
+    description: { type: String, null: true },
+    image: { type: String, null: true }
 });
