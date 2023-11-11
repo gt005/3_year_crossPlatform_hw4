@@ -9,24 +9,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.tableDelete = exports.tableUpdate = exports.tableCreate = void 0;
-const Table_1 = require("../models/Table");
-const tableCreate = (tableData) => __awaiter(void 0, void 0, void 0, function* () {
-    const table = new Table_1.Table(tableData);
-    yield table.save();
-    return table;
+exports.wardrobeDelete = exports.wardrobeUpdate = exports.wardrobeCreate = void 0;
+const Wardrobe_1 = require("../models/Wardrobe");
+const wardrobeCreate = (wardrobeData) => __awaiter(void 0, void 0, void 0, function* () {
+    const wardrobe = new Wardrobe_1.Wardrobe(wardrobeData);
+    yield wardrobe.save();
+    return wardrobe;
 });
-exports.tableCreate = tableCreate;
-const tableUpdate = (id, tableData) => __awaiter(void 0, void 0, void 0, function* () {
-    const updatedTable = yield Table_1.Table.findByIdAndUpdate(id, tableData, { new: true });
-    return updatedTable;
+exports.wardrobeCreate = wardrobeCreate;
+const wardrobeUpdate = (id, wardrobeData) => __awaiter(void 0, void 0, void 0, function* () {
+    const updatedWardrobe = yield Wardrobe_1.Wardrobe.findByIdAndUpdate(id, wardrobeData, { new: true });
+    return updatedWardrobe;
 });
-exports.tableUpdate = tableUpdate;
-const tableDelete = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const deletedDocument = yield Table_1.Table.findByIdAndDelete(id);
+exports.wardrobeUpdate = wardrobeUpdate;
+const wardrobeDelete = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const deletedDocument = yield Wardrobe_1.Wardrobe.findByIdAndDelete(id);
     if (!deletedDocument) {
         return false;
     }
     return true;
 });
-exports.tableDelete = tableDelete;
+exports.wardrobeDelete = wardrobeDelete;

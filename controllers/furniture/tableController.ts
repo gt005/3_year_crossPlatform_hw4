@@ -1,11 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import { tableGetById, tableGetAll } from '../../apps/furniture/selectors/tables';
 import { tableCreate, tableUpdate, tableDelete } from '../../apps/furniture/services/tables';
-import { validationResult, param } from 'express-validator';
-import {Table} from '../../apps/furniture/models/Table';
+import { validationResult } from 'express-validator';
 
 export const getTablesByIdController = async (req: Request, res: Response, next: NextFunction) => {
-    console.log(validationResult(req));
     try {
         const table = await tableGetById(req.params.id);
 

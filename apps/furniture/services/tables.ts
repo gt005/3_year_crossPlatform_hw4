@@ -1,4 +1,3 @@
-import { Model } from 'mongoose';
 import { Table, ITable } from '../models/Table';
 
 
@@ -17,7 +16,6 @@ export const tableUpdate = async (id: string, tableData: ITable): Promise<ITable
 
 export const tableDelete = async (id: string): Promise<boolean> => {
     const deletedDocument = await Table.findByIdAndDelete(id);
-    console.log(deletedDocument);
 
     if (!deletedDocument) {
         return false;

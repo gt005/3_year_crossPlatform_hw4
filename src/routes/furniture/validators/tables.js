@@ -1,17 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tableValidationRules = void 0;
-const express_validator_1 = require("express-validator");
+const commonValidators_1 = require("../../validators/commonValidators");
 const tableValidationRules = () => {
-    return [
-        (0, express_validator_1.body)('size').isString(),
-        (0, express_validator_1.body)('material').isString(),
-        (0, express_validator_1.body)('color.name').isString(),
-        (0, express_validator_1.body)('color.hexCode').isString(),
-        (0, express_validator_1.body)('quantityInStock').optional().isInt({ min: 0 }),
-        (0, express_validator_1.body)('cost').isFloat({ min: 0 }),
-        (0, express_validator_1.body)('description').optional().isString(),
-        (0, express_validator_1.body)('image').optional().isString()
-    ];
+    // Сделано так, потому что не хочу считать и работать с этими моделями как с полиморфными
+    // (то есть не хочу, чтобы один и тот же валидатор был для каждой модели)
+    const baseRules = (0, commonValidators_1.baseItemValidationRules)();
+    return baseRules;
 };
 exports.tableValidationRules = tableValidationRules;

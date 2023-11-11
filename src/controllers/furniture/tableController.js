@@ -14,7 +14,6 @@ const tables_1 = require("../../apps/furniture/selectors/tables");
 const tables_2 = require("../../apps/furniture/services/tables");
 const express_validator_1 = require("express-validator");
 const getTablesByIdController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log((0, express_validator_1.validationResult)(req));
     try {
         const table = yield (0, tables_1.tableGetById)(req.params.id);
         if (!table) {

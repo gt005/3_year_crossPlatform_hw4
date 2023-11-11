@@ -1,15 +1,11 @@
-import { body, ValidationChain } from 'express-validator';
+import { ValidationChain } from 'express-validator';
+import { baseItemValidationRules } from '../../validators/commonValidators';
 
 
 export const tableValidationRules = (): Array<ValidationChain> => {
-  return [
-    body('size').isString(),
-    body('material').isString(),
-    body('color.name').isString(),
-    body('color.hexCode').isString(),
-    body('quantityInStock').optional().isInt({ min: 0 }),
-    body('cost').isFloat({ min: 0 }),
-    body('description').optional().isString(),
-    body('image').optional().isString()
-  ];
+  // Сделано так, потому что не хочу считать и работать с этими моделями как с полиморфными
+  // (то есть не хочу, чтобы один и тот же валидатор был для каждой модели)
+  const baseRules = baseItemValidationRules();
+
+  return baseRules;
 };
